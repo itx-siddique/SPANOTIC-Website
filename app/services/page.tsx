@@ -1,6 +1,15 @@
 "use client";
 
 import React from 'react';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Capabilities & Services | Spanotic',
+  description: 'End-to-end digital product engineering and scalable system architecture services by Spanotic.',
+  alternates: {
+    canonical: 'https://spanotic.com/services',
+  },
+};
 
 export default function ServicesPage() {
   return (

@@ -2,6 +2,16 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Our Team | Spanotic',
+  description: 'Meet the engineering core at Spanotic - a decentralized team of system architects and full-stack engineers.',
+  alternates: {
+    canonical: 'https://spanotic.com/team',
+  },
+};
 
 const teamMembers = [
   {
@@ -9,8 +19,9 @@ const teamMembers = [
     role: "Founder & Lead Engineer",
     bio: "Specializing in full-stack architecture, Python data pipelines, and scalable cloud systems.",
     skills: ["Next.js", "Python", "AWS"],
+    avatar: "", // e.g. "/team/afnan.jpg" once you add the file
     social: {
-      linkedin: "#",
+      linkedin: "https://www.linkedin.com/in/afnan-ahmed1614114?utm_source=share_via&utm_content=profile&utm_medium=member_android",
       github: "#"
     }
   },
@@ -19,8 +30,9 @@ const teamMembers = [
     role: "Lead Frontend Developer",
     bio: "Creating immersive, high-performance user interfaces and bridging the gap between design and engineering.",
     skills: ["React", "Tailwind CSS", "WebGL"],
+    avatar: "", // e.g. "/team/abubakkar.jpg" once you add the file
     social: {
-      linkedin: "#",
+      linkedin: "https://www.linkedin.com/in/abu-bakkar-siddique-69b569211?utm_source=share_via&utm_content=profile&utm_medium=member_android",
       github: "#"
     }
   },
@@ -29,8 +41,9 @@ const teamMembers = [
     role: "Backend Architect",
     bio: "Designing resilient APIs, microservices, and high-availability database architectures for scale.",
     skills: ["Node.js", "PostgreSQL", "Docker"],
+    avatar: "", // e.g. "/team/shahmeer.jpg" once you add the file
     social: {
-      linkedin: "#",
+      linkedin: "https://www.linkedin.com/in/muhammad-shahmeer-ds?utm_source=share_via&utm_content=profile&utm_medium=member_android",
       github: "#"
     }
   }
@@ -78,9 +91,18 @@ export default function TeamPage() {
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-[1100px] mx-auto relative z-10">
         {teamMembers.map((member, index) => (
           <div key={index} className="bg-[#16161D]/50 border border-[#2A2A38] rounded-2xl p-8 flex flex-col items-center hover:border-[#8A2BE2]/50 transition-all">
-            {/* Avatar Placeholder */}
-            <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#00F0FF]/20 to-[#8A2BE2]/20 border border-[#2A2A38] mb-6 flex items-center justify-center">
-              <UserIcon />
+            {/* Avatar */}
+            <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#00F0FF]/20 to-[#8A2BE2]/20 border border-[#2A2A38] mb-6 flex items-center justify-center overflow-hidden relative">
+              {member.avatar ? (
+                <Image
+                  src={member.avatar}
+                  alt={member.name}
+                  fill
+                  className="object-cover"
+                />
+              ) : (
+                <UserIcon />
+              )}
             </div>
 
             {/* Name & Role */}
@@ -103,7 +125,7 @@ export default function TeamPage() {
 
             {/* Social Links */}
             <div className="flex gap-4 mt-auto">
-              <Link href={member.social.linkedin} className="text-[#A1A1AA] hover:text-white transition-colors">
+              <Link href={member.social.linkedin} target="_blank" rel="noopener noreferrer" className="text-[#A1A1AA] hover:text-white transition-colors">
                 <LinkedinIcon />
               </Link>
               <Link href={member.social.github} className="text-[#A1A1AA] hover:text-white transition-colors">

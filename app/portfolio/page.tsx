@@ -2,6 +2,15 @@
 
 import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Our Portfolio | Spanotic',
+  description: 'Explore Spanotic\'s engineered systems and digital transformations.',
+  alternates: {
+    canonical: 'https://spanotic.com/portfolio',
+  },
+};
 
 const Project3DCanvas = dynamic(() => import('@/components/Project3DCanvas'), {
   ssr: false,

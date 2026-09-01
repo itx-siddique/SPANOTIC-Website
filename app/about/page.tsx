@@ -1,7 +1,15 @@
 "use client";
 
 import React from 'react';
+import { Metadata } from 'next';
 
+export const metadata: Metadata = {
+  title: 'About Us | Spanotic',
+  description: 'Learn about Spanotic\'s mission to build intelligent digital systems and high-performance web architecture.',
+  alternates: {
+    canonical: 'https://spanotic.com/about',
+  },
+};
 export default function AboutPage() {
   return (
     <main className="relative overflow-hidden min-h-screen pt-12 px-6 pb-24">

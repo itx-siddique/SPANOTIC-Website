@@ -18,11 +18,9 @@ export default function Footer() {
           <h3 className="text-white font-semibold mb-4">Navigation</h3>
           <Link href="/" className="text-[#A1A1AA] hover:text-[#00F0FF] transition-colors mb-2">Home</Link>
           <Link href="/portfolio" className="text-[#A1A1AA] hover:text-[#00F0FF] transition-colors mb-2">Portfolio</Link>
-          <Link href="/services" className="text-[#A1A1AA] hover:text-[#00F0FF] transition-colors">Services</Link>
-          <Link href="/pricing" className="text-[#A1A1AA] hover:text-[#00F0FF] transition-colors">Pricing</Link>
+          <Link href="/services" className="text-[#A1A1AA] hover:text-[#00F0FF] transition-colors mb-2">Services</Link>
+          <Link href="/pricing" className="text-[#A1A1AA] hover:text-[#00F0FF] transition-colors mb-2">Pricing</Link>
           <Link href="/about" className="text-[#A1A1AA] hover:text-[#00F0FF] transition-colors">About</Link>
-
-
         </div>
 
         {/* Contact Column */}

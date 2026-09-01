@@ -1,6 +1,15 @@
 "use client";
 
 import React, { Suspense, useState } from 'react';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Contact Us | Spanotic',
+  description: 'Get in touch with Spanotic to discuss your digital architecture needs.',
+  alternates: {
+    canonical: 'https://spanotic.com/contact',
+  },
+};
 import { useSearchParams } from 'next/navigation';
 // 1. The Form Component that handles URL reading
 function ContactFormContent() {
@@ -216,7 +225,7 @@ export default function ContactPage() {
         <div className="bg-[#16161D]/50 border border-[#2A2A38] rounded-2xl p-8 flex flex-col justify-center backdrop-blur-sm">
           <div className="mb-8">
             <span className="text-[#00F0FF] text-sm font-bold uppercase tracking-wider block mb-2">Email</span>
-            <p className="text-white text-lg">afnanahmed.pro@gmail.com</p>
+            <p className="text-white text-lg break-words">afnanahmed.pro@gmail.com</p>
           </div>
           <div className="mb-8">
             <span className="text-[#00F0FF] text-sm font-bold uppercase tracking-wider block mb-2">Phone</span>

@@ -2,6 +2,15 @@
 import Link from 'next/link';
 import { useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Pricing & Estimator | Spanotic',
+  description: 'Generate a real-time budget estimate for your next digital architecture project with Spanotic.',
+  alternates: {
+    canonical: 'https://spanotic.com/pricing',
+  },
+};
 
 // Inner component — reads URL params and owns all interactive state
 function PricingEstimator() {
