@@ -1,5 +1,3 @@
-"use client";
-
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -19,7 +17,7 @@ const teamMembers = [
     role: "Founder & Lead Engineer",
     bio: "Specializing in full-stack architecture, Python data pipelines, and scalable cloud systems.",
     skills: ["Next.js", "Python", "AWS"],
-    avatar: "", // e.g. "/team/afnan.jpg" once you add the file
+    avatar: "/team/afnan.jpg", // e.g. "/team/afnan.jpg" once you add the file
     social: {
       linkedin: "https://www.linkedin.com/in/afnan-ahmed1614114?utm_source=share_via&utm_content=profile&utm_medium=member_android",
       github: "#"
@@ -30,7 +28,7 @@ const teamMembers = [
     role: "Lead Frontend Developer",
     bio: "Creating immersive, high-performance user interfaces and bridging the gap between design and engineering.",
     skills: ["React", "Tailwind CSS", "WebGL"],
-    avatar: "", // e.g. "/team/abubakkar.jpg" once you add the file
+    avatar: "/team/abubakkar.jpg", // e.g. "/team/abubakkar.jpg" once you add the file
     social: {
       linkedin: "https://www.linkedin.com/in/abu-bakkar-siddique-69b569211?utm_source=share_via&utm_content=profile&utm_medium=member_android",
       github: "#"
@@ -41,7 +39,7 @@ const teamMembers = [
     role: "Backend Architect",
     bio: "Designing resilient APIs, microservices, and high-availability database architectures for scale.",
     skills: ["Node.js", "PostgreSQL", "Docker"],
-    avatar: "", // e.g. "/team/shahmeer.jpg" once you add the file
+    avatar: "/team/shahmeer.jpg", // e.g. "/team/shahmeer.jpg" once you add the file
     social: {
       linkedin: "https://www.linkedin.com/in/muhammad-shahmeer-ds?utm_source=share_via&utm_content=profile&utm_medium=member_android",
       github: "#"

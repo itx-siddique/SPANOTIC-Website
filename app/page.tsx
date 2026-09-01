@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen text-white font-sans relative overflow-hidden flex flex-col items-center pb-0">
+    <main className="min-h-screen bg-[#0B0B0E] text-white font-sans relative overflow-hidden flex flex-col items-center pb-0">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
