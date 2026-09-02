@@ -1,10 +1,56 @@
-import React from 'react';
+'use client';
+import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import DotGrid from '@/components/DotGrid';
 
 export default function Hero() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    // Mobile-only: mirrors the md: (768px) breakpoint used in this file
+    if (!window.matchMedia('(max-width: 767px)').matches) return;
+
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const onScroll = () => {
+      const rect = section.getBoundingClientRect();
+      const vh = window.innerHeight;
+
+      // progress: 0 = hero bottom at viewport bottom, 1 = hero top at viewport top
+      const progress = Math.max(0, Math.min(1, (vh - rect.top) / (vh + rect.height)));
+
+      // Synthetic cursor: sweeps diagonally (left→right, top→bottom) as user scrolls
+      // X: 25% → 75% of hero width
+      const synthClientX = rect.left + rect.width * (0.25 + progress * 0.5);
+      // Y: clamp to hero bounds, tracking viewport centre through the hero
+      const synthClientY = Math.max(
+        rect.top + 10,
+        Math.min(rect.bottom - 10, vh * 0.5)
+      );
+
+      // Skip if the hero is entirely out of view
+      if (rect.bottom < 0 || rect.top > vh) return;
+
+      // Feed into DotGrid's existing window mousemove listener unchanged
+      window.dispatchEvent(
+        new MouseEvent('mousemove', {
+          bubbles: true,
+          clientX: synthClientX,
+          clientY: synthClientY,
+        })
+      );
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    // Trigger once on mount so dots light up immediately without needing to scroll
+    onScroll();
+
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   return (
-    <section className="relative w-full min-h-[90vh] flex items-center pt-4 pb-12 overflow-hidden border-b border-white/5">
+    <section ref={sectionRef} className="relative w-full min-h-[90vh] flex items-center pt-4 pb-12 overflow-hidden border-b border-white/5">
 
       {/* 1. FULL-BLEED BACKGROUND */}
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
