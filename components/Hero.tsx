@@ -23,7 +23,7 @@ export default function Hero() {
 
       {/* 2. THE MAGIC GRADIENT OVERLAY */}
       {/* FIX: Darkened the mobile background for better text legibility */}
-      <div className="absolute inset-0 w-full h-full z-10 bg-[#0B0B0E]/70 sm:bg-transparent sm:bg-gradient-to-r sm:from-[#0B0B0E] sm:via-[#0B0B0E]/90 sm:to-transparent pointer-events-none"></div>
+      <div className="absolute inset-0 w-full h-full z-10 bg-[#0B0B0E]/40 sm:bg-transparent sm:bg-gradient-to-r sm:from-[#0B0B0E]/60 sm:via-[#0B0B0E]/50 sm:to-transparent pointer-events-none"></div>
 
       {/* 3. FOREGROUND CONTENT */}
       <div className="relative z-20 w-full max-w-[1100px] mx-auto px-6">
