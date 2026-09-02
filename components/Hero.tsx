@@ -1,20 +1,23 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+import DotGrid from '@/components/DotGrid';
 
 export default function Hero() {
   return (
     <section className="relative w-full min-h-[90vh] flex items-center pt-4 pb-12 overflow-hidden border-b border-white/5">
 
       {/* 1. FULL-BLEED BACKGROUND */}
-      <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
-        <Image
-          src="/hero-image-v2.jpg"
-          alt="Spanotic Digital Infrastructure"
-          fill
-          // FIX: Added 'md:' prefix so the image stays centered on mobile
-          className="object-cover md:scale-[1.26] md:translate-x-[12.5%]"
-          priority
+      <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
+        <DotGrid
+          dotSize={5}
+          gap={15}
+          baseColor="#092D32"
+          activeColor="#00F0FF"
+          proximity={120}
+          shockRadius={250}
+          shockStrength={5}
+          resistance={750}
+          returnDuration={1.5}
         />
       </div>
 
