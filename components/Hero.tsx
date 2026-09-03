@@ -1,6 +1,8 @@
 'use client';
 import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
 import DotGrid from '@/components/DotGrid';
 
 export default function Hero() {
@@ -73,27 +75,56 @@ export default function Hero() {
 
       {/* 3. FOREGROUND CONTENT */}
       <div className="relative z-20 w-full max-w-[1100px] mx-auto px-6">
-        <div className="flex flex-col gap-6 max-w-2xl">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+          
+          {/* Left: Text Content */}
+          <div className="flex flex-col gap-6 max-w-2xl md:w-1/2 md:shrink-0">
 
-          {/* FIX: Lowered starting text size to 4xl, centered text on mobile */}
-          <h1 className="text-4xl md:text-6xl lg:text-[4.5rem] font-bold text-white leading-[1.1] md:leading-[1.05] tracking-tight text-center md:text-left mt-10 md:mt-0">
-            Converting <br className="hidden sm:block" /> Manual <br className="hidden sm:block" /> Operations into <br className="hidden lg:block" />
-            <span className="text-[#00F0FF] drop-shadow-[0_0_20px_rgba(0,240,255,0.3)]">Digital Systems.</span>
-          </h1>
+            {/* FIX: Lowered starting text size to 4xl, centered text on mobile */}
+            <h1 className="text-4xl md:text-6xl lg:text-[4.5rem] font-bold text-white leading-[1.1] md:leading-[1.05] tracking-tight text-center md:text-left mt-10 md:mt-0">
+              Converting <br className="hidden sm:block" /> Manual <br className="hidden sm:block" /> Operations into <br className="hidden lg:block" />
+              <span className="text-[#00F0FF] drop-shadow-[0_0_20px_rgba(0,240,255,0.3)]">Digital Systems.</span>
+            </h1>
 
-          {/* FIX: Centered paragraph text on mobile */}
-          <p className="text-base md:text-lg text-[#A1A1AA] max-w-lg leading-relaxed mt-2 text-center md:text-left mx-auto md:mx-0">
-            Optimizing operational complexity into digital clarity through custom architecture.
-          </p>
+            {/* FIX: Centered paragraph text on mobile */}
+            <p className="text-base md:text-lg text-[#A1A1AA] max-w-lg leading-relaxed mt-2 text-center md:text-left mx-auto md:mx-0">
+              Optimizing operational complexity into digital clarity through custom architecture.
+            </p>
 
-          {/* FIX: Switched from flex-wrap to flex-col on mobile so buttons stack neatly */}
-          <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 mt-6 w-full">
-            <Link href="/contact" className="w-full sm:w-auto text-center bg-[#00F0FF] text-[#0B0B0E] font-bold px-8 py-3.5 rounded-lg hover:bg-white transition-all shadow-[0_0_20px_rgba(0,240,255,0.4)] relative z-30">
-              Start Your Transition
-            </Link>
-            <Link href="/portfolio" className="w-full sm:w-auto text-center border border-[#2A2A38] text-white px-8 py-3.5 rounded-lg hover:border-[#8A2BE2] hover:bg-[#8A2BE2]/10 transition-all bg-[#0B0B0E]/50 backdrop-blur-md relative z-30">
-              View Our Work
-            </Link>
+            {/* FIX: Switched from flex-wrap to flex-col on mobile so buttons stack neatly */}
+            <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 mt-6 w-full">
+              <Link href="/contact" className="w-full sm:w-auto text-center bg-[#00F0FF] text-[#0B0B0E] font-bold px-8 py-3.5 rounded-lg hover:bg-white transition-all shadow-[0_0_20px_rgba(0,240,255,0.4)] relative z-30">
+                Start Your Transition
+              </Link>
+              <Link href="/portfolio" className="w-full sm:w-auto text-center border border-[#2A2A38] text-white px-8 py-3.5 rounded-lg hover:border-[#8A2BE2] hover:bg-[#8A2BE2]/10 transition-all bg-[#0B0B0E]/50 backdrop-blur-md relative z-30">
+                View Our Work
+              </Link>
+            </div>
+
+          </div>
+
+          {/* Right: Cube Image */}
+          <div className="w-full md:w-1/2 flex justify-center items-center mt-10 md:mt-0 relative z-30">
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
+              className="relative w-full max-w-[280px] sm:max-w-[360px] md:max-w-[450px] aspect-square"
+            >
+              <motion.div
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+                className="w-full h-full"
+              >
+                <Image 
+                  src="/axiora-cube-cyan-transparent.png" 
+                  alt="Axiora Glowing Cyan Cube"
+                  fill
+                  priority
+                  className="object-contain drop-shadow-[0_0_30px_rgba(0,240,255,0.2)]"
+                />
+              </motion.div>
+            </motion.div>
           </div>
 
         </div>
